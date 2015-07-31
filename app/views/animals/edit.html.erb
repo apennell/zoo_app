@@ -1,0 +1,23 @@
+<h1>Edit your animal!</h1>
+
+<!-- <form action="/animals/<%= @animal.id %>" method="post">
+  <input name="_method" type="hidden" value="put">
+  <%= token_tag form_authenticity_token %>
+  <input type="text" name="animal[name]" placeholder="Name" value="<%= @animal.name %>">
+  <input type="text" name="animal[species]" placeholder="Species" value="<%= @animal.species %>">
+  <textarea name="animal[description]" placeholder="Description"><%= @animal.description %></textarea>
+  <input type="submit" value="Update Animal">
+</form> -->
+
+<%= form_for @animal do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <%= f.label :species %>
+  <%= f.text_field :species %><br />
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br />
+
+  <%= f.submit "Update Animal" %>
+<% end %>

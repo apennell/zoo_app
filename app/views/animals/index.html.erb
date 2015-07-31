@@ -1,1 +1,24 @@
-<h1>Welcome to the Zoo!!!!</h1>
+<div class="container">
+
+  <h1>Welcome to the Zoo!!!!</h1>
+
+  <% @animals.each do |animal| %>
+
+    <div>
+      Name: <%= animal.name %><br>
+      Species: <%= animal.species %><br>
+      Description: <%= animal.description %><br>
+      
+      <!-- form to delete animal -->
+      <form action="/animals/<%= animal.id %>" method="post" style="display:inline-block">
+        <%= token_tag form_authenticity_token %>
+        <input type="hidden" name="_method" value="delete">
+        <button class="btn">Delete</button>
+      </form>
+
+    </div>
+    <br>
+    
+  <% end %>
+
+</div>

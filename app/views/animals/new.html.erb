@@ -1,0 +1,10 @@
+<h1>Donate an animal to the zoo!</h1>
+
+<form action="/animals" method="post">
+    <input type="text" name="animal[name]" placeholder="Name">
+    <input type="text" name="animal[species]" placeholder="Species">
+    <textarea name="animal[description]" placeholder="Tell us more about your animal"></textarea>
+    <%= token_tag form_authenticity_token %>
+
+    <button> Donate Animal </button>
+</form>

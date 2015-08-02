@@ -1,5 +1,23 @@
-<div>
-  Name: <%= @animal.name %><br>
-  Type: <%= @animal.species %><br>
-  Description: <%= @animal.description %>
+<div class="container">
+  <div>
+    <h3><strong><%= @animal.name %></strong><br></h3>
+    <p>
+      <i>Species: <%= @animal.species %></i><br>
+      <%= @animal.description %>
+    </p>
+  </div>
+
+  <div>
+    <!-- button/form to delete animal -->
+    <form action="/animals/<%= @animal.id %>" method="post" style="display:inline-block">
+      <%= token_tag form_authenticity_token %>
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn btn-sm">Delete</button>
+    </form>
+
+    <!-- button to edit animal -->
+    <button class="btn btn-sm"><%= link_to 'Edit Animal', edit_animal_path(@animal) %></button>
+  </div>
+  
+
 </div>

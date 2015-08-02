@@ -1,10 +1,30 @@
-<h1>Donate an animal to the zoo!</h1>
+<div class="container">
+  <h1>Donate an animal to the zoo!</h1>
 
-<form action="/animals" method="post">
-    <input type="text" name="animal[name]" placeholder="Name">
-    <input type="text" name="animal[species]" placeholder="Species">
-    <textarea name="animal[description]" placeholder="Tell us more about your animal"></textarea>
-    <%= token_tag form_authenticity_token %>
+  <!-- <form action="/animals" method="post">
+      <input type="text" name="animal[name]" placeholder="Name">
+      <input type="text" name="animal[species]" placeholder="Species">
+      <textarea name="animal[description]" placeholder="Tell us more about your animal"></textarea>
+      <%= token_tag form_authenticity_token %>
 
-    <button> Donate Animal </button>
-</form>
+      <button> Donate Animal </button>
+  </form> -->
+
+  <%= form_for :animal, url: "/animals", method: "post" do |f| %>
+    <div>
+      <%= f.text_field :name, placeholder: "Name" %>
+    </div>
+    <br>
+    <div>
+      <%= f.text_field :species, placeholder: "Species" %>
+    </div>
+    <br>
+    <div>
+      <%= f.text_area :description, placeholder: "Tell us more about your animal" %>
+    </div>
+    <br>
+    <div>
+      <%= f.submit class: "btn btn-sm" "Donate animal" %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,7 @@
 <div class="container">
-  <div>
+  
+  <div class="text-center">
+    <%= image_tag @animal.image.url(:med) %>
     <h3><strong><%= @animal.name %></strong><br></h3>
     <p>
       <i>Species: <%= @animal.species %></i><br>
@@ -7,7 +9,7 @@
     </p>
   </div>
 
-  <div>
+  <div class="text-center">
     <!-- button/form to delete animal -->
     <form action="/animals/<%= @animal.id %>" method="post" style="display:inline-block">
       <%= token_tag form_authenticity_token %>
@@ -19,5 +21,4 @@
     <button class="btn btn-sm"><%= link_to 'Edit Animal', edit_animal_path(@animal) %></button>
   </div>
   
-
 </div>

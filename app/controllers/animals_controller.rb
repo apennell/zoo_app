@@ -9,7 +9,7 @@ class AnimalsController < ApplicationController
   end
 
   def create
-    animal_params = params.require(:animal).permit(:name, :species, :description)
+    animal_params = params.require(:animal).permit(:name, :species, :description, :image)
     animal = Animal.create(animal_params)
     redirect_to "/animals/#{animal.id}"
   end
@@ -33,7 +33,7 @@ class AnimalsController < ApplicationController
   def update
     animal_id = params[:id]
     @animal = Animal.find(animal_id)
-    animal_params = params.require(:animal).permit(:name, :species, :description)
+    animal_params = params.require(:animal).permit(:name, :species, :description, :image)
     @animal.update_attributes(animal_params)
     render :show
   end

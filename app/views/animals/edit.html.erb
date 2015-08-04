@@ -1,40 +1,45 @@
 <div class="container">
+  <div class="row text-center">
+    <div class="col-sm-6 col-md-offset-3">
+      <h1>Edit your animal!</h1>
 
-  <h1>Edit your animal!</h1>
+      <!-- <form action="/animals/<%= @animal.id %>" method="post">
+        <input name="_method" type="hidden" value="put">
+        <%= token_tag form_authenticity_token %>
+        <input type="text" name="animal[name]" placeholder="Name" value="<%= @animal.name %>">
+        <input type="text" name="animal[species]" placeholder="Species" value="<%= @animal.species %>">
+        <textarea name="animal[description]" placeholder="Description"><%= @animal.description %></textarea>
+        <input type="submit" value="Update Animal">
+      </form> -->
 
-  <!-- <form action="/animals/<%= @animal.id %>" method="post">
-    <input name="_method" type="hidden" value="put">
-    <%= token_tag form_authenticity_token %>
-    <input type="text" name="animal[name]" placeholder="Name" value="<%= @animal.name %>">
-    <input type="text" name="animal[species]" placeholder="Species" value="<%= @animal.species %>">
-    <textarea name="animal[description]" placeholder="Description"><%= @animal.description %></textarea>
-    <input type="submit" value="Update Animal">
-  </form> -->
+      <%= form_for @animal do |f| %>
+        
+        <div>
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <br>
+        <div>
+          <%= f.label :species %><br>
+          <%= f.text_field :species %>
+        </div>
+        <br>
+        <div>
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </div>
+        <br>
+        <div>
+          <%= image_tag @animal.image.url(:small) %><br><br>
+          <center><%= f.file_field :image %></center>
+        </div>
+        <br>
+        <div>
+          <%= f.submit class: "btn btn-sm" "Update Animal" %>
+          <button class="btn btn-sm"><%= link_to 'Cancel', animal_path(@animal) %></button>
+        </div>
 
-  <%= form_for @animal do |f| %>
-    
-    <div>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-    <br>
-    <div>
-      <%= f.label :species %><br>
-      <%= f.text_field :species %>
-    </div>
-    <br>
-    <div>
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <br>
-    <div>
-      <%= f.submit  class: "btn btn-sm" "Update Animal" %>
-    </div>
-
-  <% end %>
-  <br>
-
-  <button class="btn btn-sm"><%= link_to 'Cancel', animal_path(@animal) %></button>
-
+      <% end %>
+    </div> 
+  </div>
 </div>

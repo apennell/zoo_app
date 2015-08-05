@@ -21,6 +21,8 @@ class AnimalsController < ApplicationController
     # find animal in db by id
     @animal = Animal.find(animal_id)
 
+    @exhibit = Exhibit.find(@animal.exhibit_id)
+
     render :show
   end
 

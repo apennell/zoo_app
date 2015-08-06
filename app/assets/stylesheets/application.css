@@ -1,9 +1,14 @@
 body {
   min-height: 2000px;
   padding-top: 70px;
+/*  background-size: cover; 
+  background: url("desert.jpg");*/
 }
 
-.desert-bg {
-  background: url("desert.jpg");
-  background-size: cover; 
+h1, h2, h3 {
+  font-family: 'Boogaloo', cursive;
+}
+
+body {
+  font-family: 'Cabin', sans-serif;
 }

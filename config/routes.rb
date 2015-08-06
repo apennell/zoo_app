@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  root to: 'animals#index'
+  
   get 'sessions/new'
 
   get 'users/new'
@@ -7,6 +8,10 @@ Rails.application.routes.draw do
   get 'users/create'
 
   get 'users/show'
+
+  get '/signup', to: 'users#new'
+
+  post '/users', to: 'users#create'
 
   get 'exhibits/desert'
 
@@ -19,8 +24,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/logout', to: 'sessions#destroy'
-
-  root to: 'animals#index'
 
   resources :animals, :exhibits, :users
 

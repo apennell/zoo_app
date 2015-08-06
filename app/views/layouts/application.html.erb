@@ -40,6 +40,13 @@
             </ul>
           </li>
           <li><a href="/animals/new">Donate an Animal</a></li>
+          <% if current_user %>
+            <li><a href="/users/<%= current_user.id %>"><%= current_user.username %></a></li>
+            <li><%= link_to 'Logout', '/logout' %></li>
+          <% else %>
+            <li><%= link_to 'Login', '/login' %></li>
+            <li><%= link_to 'Signup', '/signup' %></li>
+          <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

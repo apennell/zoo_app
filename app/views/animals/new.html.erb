@@ -1,36 +1,44 @@
 <div class="container">
-  <h1>Donate an animal to the zoo!</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>Donate an animal to the zoo!</h1>
 
-  <!-- <form action="/animals" method="post">
-      <input type="text" name="animal[name]" placeholder="Name">
-      <input type="text" name="animal[species]" placeholder="Species">
-      <textarea name="animal[description]" placeholder="Tell us more about your animal"></textarea>
-      <%= token_tag form_authenticity_token %>
+      <!-- <form action="/animals" method="post">
+          <input type="text" name="animal[name]" placeholder="Name">
+          <input type="text" name="animal[species]" placeholder="Species">
+          <textarea name="animal[description]" placeholder="Tell us more about your animal"></textarea>
+          <%= token_tag form_authenticity_token %>
 
-      <button> Donate Animal </button>
-  </form> -->
+          <button> Donate Animal </button>
+      </form> -->
 
-  <%= form_for :animal, html: { multipart: true }, url: "/animals", method: "post" do |f| %>
-    <div>
-      <%= f.text_field :name, placeholder: "Name" %>
+      <%= form_for :animal, html: { multipart: true }, url: "/animals", method: "post" do |f| %>
+        <div>
+          <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+        </div>
+        <br>
+        <div>
+          <%= f.text_field :species, placeholder: "Species", class: "form-control" %>
+        </div>
+        <br>
+        <div>
+          <%= f.text_area :description, placeholder: "Tell us more about your animal", class: "form-control" %>
+        </div>
+        <br>
+        <div>
+          <p>What exhibit does your animal belong in?</p>
+          <%= f.select(:exhibit_id, [['Asia', 8], ['Birdland', 6], ['The Desert', 2], ['Down Under', 10], ['Fantasy Forest', 1], ['The Farm', 12], ['The Jungle', 7], ['Oceanlandia', 9], ['Reptile City', 11], ['Savanna', 4], ['South America', 5], ['The Town', 3]]) %>
+        </div>
+        <br>
+        <div>
+          <%= f.file_field :image %>
+        </div>
+        <br>
+        <div>
+          <%= f.submit class: "btn btn-sm" "Donate animal" %>
+        </div>
+      <% end %>
     </div>
-    <br>
-    <div>
-      <%= f.text_field :species, placeholder: "Species" %>
-    </div>
-    <br>
-    <div>
-      <%= f.text_area :description, placeholder: "Tell us more about your animal" %>
-    </div>
-    <br>
-    <div>
-      <%= f.file_field :image %>
-    </div>
-    <br>
-    <div>
-      <%= f.submit class: "btn btn-sm" "Donate animal" %>
-    </div>
-  <% end %>
-
+  </div>
 
 </div>

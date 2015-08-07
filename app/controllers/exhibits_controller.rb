@@ -40,7 +40,7 @@ class ExhibitsController < ApplicationController
   end
 
   def oceanlandia
-    @animals = Animal.where(name: 9)
+    @animals = Animal.where(exhibit_id: 9)
     render :oceanlandia
   end
 
@@ -57,6 +57,11 @@ class ExhibitsController < ApplicationController
   def south_america
     @animals = Animal.where(exhibit_id: 5)
     render :south_america
+  end
+
+  def farm
+    @animals = Animal.where(exhibit_id: 13)
+    render :farm
   end
 
 end

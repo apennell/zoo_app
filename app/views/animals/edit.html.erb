@@ -16,22 +16,27 @@
         
         <div>
           <%= f.label :name %><br>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, class: "form-control" %>
         </div>
         <br>
         <div>
           <%= f.label :species %><br>
-          <%= f.text_field :species %>
+          <%= f.text_field :species, class: "form-control" %>
         </div>
         <br>
         <div>
           <%= f.label :description %><br>
-          <%= f.text_area :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        <br>
+        <div>
+          <p>Exhibit</p>
+          <%= f.select(:exhibit_id, [['Asia', 8], ['Birdland', 6], ['The Desert', 2], ['Down Under', 10], ['Fantasy Forest', 1], ['The Farm', 12], ['The Jungle', 7], ['Oceanlandia', 9], ['Reptile City', 11], ['Savanna', 4], ['South America', 5], ['The Town', 3]]) %>
         </div>
         <br>
         <div>
           <%= image_tag @animal.image.url(:small) %><br><br>
-          <center><%= f.file_field :image %></center>
+          <center><%= f.file_field :image, class: "form-control" %></center>
         </div>
         <br>
         <div>

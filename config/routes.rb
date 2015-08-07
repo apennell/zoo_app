@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'exhibits/reptile_city'
   get 'exhibits/savanna'
   get 'exhibits/south_america'
+  get 'exhibits/farm'
 
   resources :animals, :exhibits, :users
 
